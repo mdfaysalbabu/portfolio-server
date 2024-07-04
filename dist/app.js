@@ -19,11 +19,18 @@ const globalErrorhandler_1 = __importDefault(require("./app/middlewares/globalEr
 const notFountRoute_1 = require("./app/middlewares/notFountRoute");
 const app = (0, express_1.default)();
 // parser
-app.use((0, cors_1.default)({ origin: ["https://portfolio-pink-ten-95.vercel.app", "https://portfolio-dashboard-one.vercel.app"], credentials: true }));
+app.use((0, cors_1.default)({
+    origin: [
+        "https://portfolio-dashboard-nine-sand.vercel.app",
+        "http://localhost:3000",
+        "https://my-portfolio-ecru-xi.vercel.app",
+    ],
+    credentials: true,
+}));
 app.use(express_1.default.json());
-app.use('/api/v1', routes_1.default);
-app.get('/', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    res.send('Hello user');
+app.use("/api/v1", routes_1.default);
+app.get("/", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    res.send("Portfolio Running");
 }));
 app.use(globalErrorhandler_1.default);
 app.use(notFountRoute_1.notFountRoute);
